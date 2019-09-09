@@ -434,16 +434,6 @@ class S3FS(FS):
         _path = self.validatepath(path)
         _key = self._path_to_key(_path)
 
-        try:
-            dir_path = dirname(_path)
-            if dir_path != "/":
-                _dir_key = self._path_to_dir_key(dir_path)
-                with s3errors(path):
-                    obj = self.s3.Object(self._bucket_name, _dir_key)
-                    obj.load()
-        except errors.ResourceNotFound:
-            raise errors.ResourceNotFound(path)
-
         if _path == "/":
             return Info(
                 {
