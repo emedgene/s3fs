@@ -23,7 +23,7 @@ CLASSIFIERS = [
 with open("README.rst", "rt") as f:
     DESCRIPTION = f.read()
 
-REQUIREMENTS = ["boto3~=1.7", "fs~=2.2", "six~=1.10", "smart_open~=1.8.3"]
+REQUIREMENTS = ["boto3", "fs", "six", "smart_open"]
 
 setup(
     name="fs-s3fs",
